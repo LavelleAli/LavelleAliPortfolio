@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
+/*
+  Color system
+  - Base:    black background
+  - Primary: sky blue, yellow, white
+  - Accents: coral, mint, violet (use sparingly — tags, highlights, hover states)
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* base */
+  --ink: #000000;
+  --surface: #0c0c10;
+  --line: #22222b;
+
+  /* primary */
+  --skyblue: #87ceeb;
+  --sun: #facc15;
+  --snow: #ffffff;
+  --muted: #a1a1aa;
+
+  /* accents */
+  --coral: #fb7185;
+  --mint: #34d399;
+  --violet: #a78bfa;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-skyblue: var(--skyblue);
+  --color-sun: var(--sun);
+  --color-snow: var(--snow);
+  --color-muted: var(--muted);
+  --color-coral: var(--coral);
+  --color-mint: var(--mint);
+  --color-violet: var(--violet);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--ink);
+  color: var(--snow);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+::selection {
+  background: var(--sun);
+  color: var(--ink);
 }
