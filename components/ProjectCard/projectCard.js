@@ -18,8 +18,8 @@ const projectCard = ({ project }) => {
       </ul>
 
       <div className='mt-6 flex gap-4 text-sm font-medium'>
-        {project.liveUrl && <a href={project.liveUrl} className='text-sun hover:underline'>Live site →</a>}
-        {project.repoUrl && <a href={project.repoUrl} className='text-skyblue hover:underline'>Code →</a>}
+        {project.liveUrl && <a href={project.liveUrl} className='text-sun hover:underline' target='_blank' rel='noopener noreferrer'>Live site →</a>}
+        {project.repoUrl && <a href={project.repoUrl} className='text-skyblue hover:underline' target='_blank' rel='noopener noreferrer'>Code →</a>}
       </div>
     </article>
   )

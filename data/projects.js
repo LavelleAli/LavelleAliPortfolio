@@ -2,19 +2,19 @@
 // featured: true shows the project on the home page.
 const projects = [
   {
-    title: 'Project One',
-    description: 'A short description of what this project does and the problem it solves.',
+    title: 'Skinstric AI',
+    description: 'Skinstric AI is a web application that uses AI to analyze skin conditions and provide personalized skincare recommendations. It leverages machine learning algorithms to identify various skin issues and suggest suitable products and routines.',
     tags: ['React', 'Next.js', 'Tailwind'],
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://lavelle-skinstric-internship-1pwg74efe-lavellealis-projects.vercel.app/',
+    repoUrl: 'https://github.com/LavelleAli/Lavelle-Skinstric-Internship.git',
     featured: true,
   },
   {
-    title: 'Project Two',
-    description: 'Highlight something interesting: an API you used, an animation, or a tricky layout.',
+    title: 'Summarist',
+    description: 'Summarist is a web application that uses AI to summarize long articles and documents into concise summaries. It utilizes natural language processing techniques to extract key information and present it in a clear and readable format.',
     tags: ['JavaScript', 'GSAP', 'CSS'],
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://lavelle-advance-virtual-internship-6eh2hrezz.vercel.app/',
+    repoUrl: 'https://github.com/LavelleAli/Project003--Summarist.git',
     featured: true,
   },
   {

@@ -7,9 +7,15 @@ const footer = () => {
         <p>© {new Date().getFullYear()} Lavelle Ali</p>
         <div className='flex gap-6'>
           {/* TODO: replace with your real profile links */}
-          <a href='https://github.com/' className='hover:text-skyblue transition-colors'>GitHub</a>
-          <a href='https://linkedin.com/' className='hover:text-skyblue transition-colors'>LinkedIn</a>
-          <a href='mailto:you@example.com' className='hover:text-sun transition-colors'>Email</a>
+          <a href='https://github.com/' className='hover:text-skyblue transition-colors' target='_blank' rel='noopener noreferrer'>
+          GitHub
+          </a>
+          <a href='https://linkedin.com/' className='hover:text-skyblue transition-colors' target='_blank' rel='noopener noreferrer'>
+            LinkedIn
+          </a>
+          <a href='mailto:LavelleAli7@gmail.com' className='hover:text-sun transition-colors'>
+            Email
+          </a>
         </div>
       </div>
     </footer>
