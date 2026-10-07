@@ -12,7 +12,7 @@ const FadeIn = ({ children }) => {
         opacity: 0,
         y: 16,
         duration: 0.8,
-        stagger: 0.5,
+        stagger: 0.3,
         ease: 'power2.out',
       })
     }, container)
