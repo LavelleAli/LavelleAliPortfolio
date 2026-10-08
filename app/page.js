@@ -18,10 +18,10 @@ const LandingPage = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   function toggleModal() {
-    setIsContactOpen((prev) => !prev)
+    setIsContactOpen((prev) => !prev);
   }
 
-  return  (
+  return (
     <div className="flex flex-col gap-28">
       {/* Hero */}
       <FadeIn>
@@ -59,12 +59,17 @@ const LandingPage = () => {
               View my work
             </Link>
 
-            <button onClick={() => setIsContactOpen(true)} className="border border-skyblue text-skyblue font-semibold px-6 py-3 rounded-lg hover:bg-skyblue hover:text-ink transition-colors">
+            <button
+              onClick={() => setIsContactOpen(true)}
+              className="border border-skyblue text-skyblue font-semibold px-6 py-3 rounded-lg hover:bg-skyblue hover:text-ink transition-colors duration-500"
+            >
               Get In Touch
             </button>
-            <ContactModals isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+            <ContactModals
+              isOpen={isContactOpen}
+              onClose={() => setIsContactOpen(false)}
+            />
           </div>
-          
         </section>
       </FadeIn>
 
@@ -112,15 +117,15 @@ const LandingPage = () => {
         <p className="mt-4 text-muted">
           I&apos;m open to new opportunities and collaborations.
         </p>
-        <Link
-          href="/contact"
-          className="inline-block mt-8 bg-skyblue text-ink font-semibold px-6 py-3 rounded-lg hover:bg-snow transition-colors"
+
+        <button
+          onClick={() => setIsContactOpen(true)}
+          className="inline-block mt-8 bg-skyblue text-ink font-semibold px-6 py-3 rounded-lg hover:bg-snow transition-colors duration-500"
         >
-          Say hello
-        </Link>
+          Say Hello
+        </button>
       </section>
     </div>
-    
   );
 };
 
