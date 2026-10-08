@@ -14,11 +14,12 @@ const navbar = () => {
   return (
     <>
       <div className="navBar absolute top-70">
-        <div className="rightSideLine absolute top-22 left-30 bg-sky-400 w-1 h-25 border border-sky-400 rounded-2xl"></div>
 
-        <div className="topSideLine absolute top-12 left-10 w-15 h-1 bg-sky-400 border border-sky-400 rounded-2xl"></div>
+        {/* <div className="rightSideLine absolute top-22 left-30 bg-sky-400 w-1 h-25 border border-sky-400 rounded-2xl"></div> */}
 
-        <div className="bottomSideLine absolute top-58 left-10 w-15 h-1 bg-sky-400 border border-sky-400 rounded-2xl"></div>
+        <div className="topSideLine absolute top-16 left-10 w-15 h-1 bg-sky-400 border border-sky-400 rounded-2xl"></div>
+
+        <div className="bottomSideLine absolute top-55 left-10 w-15 h-1 bg-sky-400 border border-sky-400 rounded-2xl"></div>
 
         <FadeIn>
           <div className="fade flex flex-col gap-4 absolute top-20 left-10 text-sm">

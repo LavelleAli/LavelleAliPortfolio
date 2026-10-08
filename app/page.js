@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import SectionHeading from "../components/SectionHeading/sectionHeading";
 import ProjectCard from "../components/ProjectCard/projectCard";
@@ -8,13 +8,20 @@ import skills from "../data/skills";
 import FadeIn from "@/components/Fader/FadeIn";
 import SplitTextAnimation from "@/components/Animations/SplitText";
 import HoverChars from "@/components/Animations/HoverChars";
+import TextCycle from "@/components/Animations/TextCycle";
+import SglWrdAnima from "@/components/Animations/SglWrdAnima";
+import ContactModals from "@/components/Modals/ContactModals";
+import { createPortal } from "react-dom";
 
-
-const landingPage = () => {
-
+const LandingPage = () => {
   const featured = projects.filter((project) => project.featured);
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
-  return (
+  function toggleModal() {
+    setIsContactOpen((prev) => !prev)
+  }
+
+  return  (
     <div className="flex flex-col gap-28">
       {/* Hero */}
       <FadeIn>
@@ -22,27 +29,28 @@ const landingPage = () => {
           <p className="fade font-mono text-skyblue ">Hi, my name is</p>
 
           <SplitTextAnimation>
-          <HoverChars>
-
-          
-
-          <h1 className="splitText text-5xl md:text-7xl font-bold leading-tight">
-            Lavelle Ali<span className="text-sun">.</span>
-          </h1>
-          </HoverChars>
+            <HoverChars>
+              <h1 className="splitText text-5xl md:text-7xl font-bold leading-tight">
+                Lavelle Ali<span className="text-sun">.</span>
+              </h1>
+            </HoverChars>
           </SplitTextAnimation>
 
-          
-          <h2 className="fade text-2xl md:text-4xl font-semibold text-muted">
-            Welcome! Thank you for visiting my portfolio — a showcase of my work
-            and projects.
-          </h2>
-          <p className="max-w-xl ">
-            <span className="fade text-sky-400">Code. </span>
-            <span className="fade">Eat. </span> 
-            <span className="fade">Sleep. </span> 
-            <span className="fade text-sun">Repeat.</span>
-          </p>
+          <SglWrdAnima delay={1.7}>
+            <h2 className="fade text-2xl md:text-4xl font-semibold text-muted">
+              <span className="grow-word inline-block">Welcome!</span> Thank you
+              for visiting my portfolio — a showcase of my projects and
+              passions.
+            </h2>
+          </SglWrdAnima>
+          <TextCycle>
+            <p className="fade max-w-xl ">
+              <span className=" text-sky-400">Code. </span>
+              <span>Eat. </span>
+              <span>Sleep. </span>
+              <span className="text-sun">Repeat.</span>
+            </p>
+          </TextCycle>
           <div className="fade flex flex-wrap gap-4 mt-2">
             <Link
               href="/projects"
@@ -50,13 +58,13 @@ const landingPage = () => {
             >
               View my work
             </Link>
-            <Link
-              href="/contact"
-              className="border border-skyblue text-skyblue font-semibold px-6 py-3 rounded-lg hover:bg-skyblue hover:text-ink transition-colors"
-            >
-              Get in touch
-            </Link>
+
+            <button onClick={() => setIsContactOpen(true)} className="border border-skyblue text-skyblue font-semibold px-6 py-3 rounded-lg hover:bg-skyblue hover:text-ink transition-colors">
+              Get In Touch
+            </button>
+            <ContactModals isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
           </div>
+          
         </section>
       </FadeIn>
 
@@ -112,7 +120,8 @@ const landingPage = () => {
         </Link>
       </section>
     </div>
+    
   );
 };
 
-export default landingPage;
+export default LandingPage;

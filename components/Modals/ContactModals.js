@@ -61,7 +61,7 @@ const ContactModals = ({ isOpen, onClose }) => {
             type="textarea"
             name="Message"
             placeholder="Type message here"
-            className="h-50 w-140   rounded-sm shadow-sm shadow-sky-300/40"
+            className="h-50 w-140 rounded-sm shadow-sm shadow-sky-300/40"
           />
           <button type="submit" className="mt-4 w-20 border border-sky-300 rounded-lg p-2 hover:text-sun hover:scale-95 transition-all duration-400">Send</button>
         </form>

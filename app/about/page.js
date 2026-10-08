@@ -8,7 +8,7 @@ export const metadata = {
 const aboutPage = () => {
   return (
     <section>
-      <SectionHeading eyebrow='About' title='About Me' />
+      <SectionHeading eyebrow='A few things' title='About Me' />
 
       <div className='grid gap-12 md:grid-cols-[2fr_1fr]'>
         <div className='flex flex-col gap-4 text-muted leading-relaxed'>
