@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import SectionHeading from "../components/SectionHeading/sectionHeading";
 import ProjectCard from "../components/ProjectCard/projectCard";
@@ -11,19 +11,15 @@ import HoverChars from "@/components/Animations/HoverChars";
 import TextCycle from "@/components/Animations/TextCycle";
 import SglWrdAnima from "@/components/Animations/SglWrdAnima";
 import ContactModals from "@/components/Modals/ContactModals";
-import { createPortal } from "react-dom";
+
 
 const LandingPage = () => {
   const featured = projects.filter((project) => project.featured);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
-  function toggleModal() {
-    setIsContactOpen((prev) => !prev);
-  }
 
   return (
     <div className="flex flex-col gap-28">
-      {/* Hero */}
       <FadeIn>
         <section className="min-h-[60vh] flex flex-col justify-center gap-6">
           <p className="fade font-mono text-skyblue ">Hi, my name is</p>
@@ -73,7 +69,7 @@ const LandingPage = () => {
         </section>
       </FadeIn>
 
-      {/* Featured projects */}
+
       <section>
         <SectionHeading eyebrow="Works" title="Featured Projects" />
         <div className="grid gap-6 md:grid-cols-2">

@@ -8,7 +8,7 @@ const navbar = () => {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
+    
   ];
 
   return (
@@ -17,9 +17,9 @@ const navbar = () => {
 
         {/* <div className="rightSideLine absolute top-22 left-30 bg-sky-400 w-1 h-25 border border-sky-400 rounded-2xl"></div> */}
 
-        <div className="topSideLine absolute top-16 left-10 w-15 h-1 bg-sky-400 border border-sky-400 rounded-2xl"></div>
+        <div className="topSideLine absolute top-16 left-10 w-15 border-b-2 border-sky-400 rounded-2xl shadow-sm shadow-sky-300"></div>
 
-        <div className="bottomSideLine absolute top-55 left-10 w-15 h-1 bg-sky-400 border border-sky-400 rounded-2xl"></div>
+        <div className="bottomSideLine absolute top-46 left-10 w-15 border-b-2 border-sky-400 rounded-2xl shadow-sm shadow-sky-400"></div>
 
         <FadeIn>
           <div className="fade flex flex-col gap-4 absolute top-20 left-10 text-sm">

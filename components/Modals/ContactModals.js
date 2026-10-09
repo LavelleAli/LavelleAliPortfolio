@@ -51,7 +51,7 @@ const ContactModals = ({ isOpen, onClose }) => {
         <div className="relative top-0 w-10 h-1 border-b border-sky-300 rounded-sm shadow-sm shadow-sky-300/50 z-1"></div>
 
         <p className="mt-8">
-          Have a question or want to work together? Send me a message.
+          Have a questions or want to work together? Send me a message.
         </p>
 
         <form
