@@ -104,7 +104,7 @@ const LandingPage = () => {
         <section className="reveal text-center border border-line rounded-2xl p-12 bg-surface">
           <h2 className="text-3xl md:text-4xl font-bold">
             Let&apos;s build something{" "}
-            <span className="text-sun">together</span>.
+            <span className="text-sun">amazing</span>.
           </h2>
           <p className="mt-4 text-muted">
             I&apos;m open to new opportunities and collaborations.
