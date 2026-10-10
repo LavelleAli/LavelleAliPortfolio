@@ -1,6 +1,8 @@
 import React from 'react';
 import SectionHeading from '../../components/SectionHeading/sectionHeading';
 import Image from 'next/image';
+import FadeIn from '@/components/Fader/FadeIn';
+import AudioPlayer from '@/components/AudioPlayer/AudioPlayer';
 
 export const metadata = {
   title: "About | Lavelle Ali",
@@ -8,7 +10,8 @@ export const metadata = {
 
 const aboutPage = () => {
   return (
-    <section>
+    <FadeIn>
+    <section className='fade'>
       <SectionHeading eyebrow='A few things' title='About Me' />
 
       <div className='grid gap-12 md:grid-cols-[2fr_1fr]'>
@@ -28,11 +31,17 @@ const aboutPage = () => {
         </div>
 
         {/* Photo placeholder — swap for <Image src="/me.jpg" ... /> from next/image */}
-        <div className='aspect-square rounded-2xl border-2 border-skyblue bg-surface flex items-center justify-center text-muted font-mono text-sm'>
-          <Image src="/Me.png" alt='ME' width={310} height={300} className='rounded-2xl' />
+        <div className='flex flex-col gap-6'>
+          <div className='aspect-square rounded-2xl border-2 border-skyblue bg-surface flex items-center justify-center text-muted font-mono text-sm'>
+            <Image src="/Me.png" alt='ME' width={310} height={300} className='rounded-2xl' />
+          </div>
+
+          <AudioPlayer src='/LiveItUp.wav' title='Live It Up' artist='Prod. by Lavelle Ali' loop />
         </div>
       </div>
     </section>
+    </FadeIn>
+   
   )
 }
 
