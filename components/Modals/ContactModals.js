@@ -6,8 +6,6 @@ import axios from "axios";
 const ContactModals = ({ isOpen, onClose }) => {
   const [status, setStatus] = useState("idle");
 
-  if (!isOpen) return null;
-
   async function sendMessage(formData) {
     setStatus("sending");
 
@@ -22,20 +20,24 @@ const ContactModals = ({ isOpen, onClose }) => {
     }
   }
 
-  // Reset the status so a reopened modal doesn't still show "sent" or "error"
   function handleClose() {
     setStatus("idle");
     onClose();
   }
 
-  return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+  return (
+    <div
+      inert={!isOpen}
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+    >
       <div
         onClick={handleClose}
         className="backdrop absolute inset-0 bg-black/70"
       ></div>
 
-      <div className="relative bg-black border-0 rounded-lg shadow-[0_0_10px] shadow-sky-300/30 flex flex-col items-center p-8">
+      <div
+        className={`relative bg-black border-0 rounded-lg shadow-[0_0_10px] shadow-sky-300/30 flex flex-col items-center p-8 transition-[scale,translate] duration-500 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"}`}
+      >
         <button
           type="button"
           onClick={handleClose}
@@ -66,7 +68,7 @@ const ContactModals = ({ isOpen, onClose }) => {
             type="text"
             name="name"
             required
-            placeholder="Enter Name"  
+            placeholder="Enter Name"
             className="w-80 ml-2 mb-4 rounded-sm shadow-sm shadow-sky-300/30 focus:outline-none focus:shadow-md focus:shadow-sky-300"
           />
 
@@ -104,12 +106,13 @@ const ContactModals = ({ isOpen, onClose }) => {
             <p className="text-sky-300 mt-2">Thanks! Your message was sent.</p>
           )}
           {status === "error" && (
-            <p className="text-sun mt-2">Something went wrong. Please try again.</p>
+            <p className="text-sun mt-2">
+              Something went wrong. Please try again.
+            </p>
           )}
         </form>
       </div>
-    </div>,
-    document.body,
+    </div>
   );
 };
 

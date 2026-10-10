@@ -11,12 +11,11 @@ import HoverChars from "@/components/Animations/HoverChars";
 import TextCycle from "@/components/Animations/TextCycle";
 import SglWrdAnima from "@/components/Animations/SglWrdAnima";
 import ContactModals from "@/components/Modals/ContactModals";
-
+import ScrollReveal from "@/components/Animations/ScrollReveal";
 
 const LandingPage = () => {
   const featured = projects.filter((project) => project.featured);
   const [isContactOpen, setIsContactOpen] = useState(false);
-
 
   return (
     <div className="flex flex-col gap-28">
@@ -61,66 +60,68 @@ const LandingPage = () => {
             >
               Get In Touch
             </button>
-            <ContactModals
-              isOpen={isContactOpen}
-              onClose={() => setIsContactOpen(false)}
-            />
           </div>
         </section>
       </FadeIn>
 
+      <ScrollReveal className="flex flex-col gap-28">
+        <section className="reveal">
+          <SectionHeading eyebrow="Works" title="Featured Projects" />
+          <div className="grid gap-6 md:grid-cols-2">
+            {featured.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
+          <Link
+            href="/projects"
+            className="inline-block mt-8 text-skyblue hover:text-sun transition-colors"
+          >
+            See all projects →
+          </Link>
+        </section>
 
-      <section>
-        <SectionHeading eyebrow="Works" title="Featured Projects" />
-        <div className="grid gap-6 md:grid-cols-2">
-          {featured.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
-        </div>
-        <Link
-          href="/projects"
-          className="inline-block mt-8 text-skyblue hover:text-sun transition-colors"
-        >
-          See all projects →
-        </Link>
-      </section>
+        {/* Skills */}
+        <section className="reveal">
+          <SectionHeading eyebrow="Toolkit" title="Skills" />
+          <div className="grid gap-6 sm:grid-cols-3">
+            {skills.map((skill) => (
+              <div
+                key={skill.group}
+                className="bg-surface border border-line rounded-xl p-6"
+              >
+                <h3 className="font-mono text-sun mb-3">{skill.group}</h3>
+                <ul className="flex flex-col gap-1 text-muted">
+                  {skill.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      {/* Skills */}
-      <section>
-        <SectionHeading eyebrow="Toolkit" title="Skills" />
-        <div className="grid gap-6 sm:grid-cols-3">
-          {skills.map((skill) => (
-            <div
-              key={skill.group}
-              className="bg-surface border border-line rounded-xl p-6"
-            >
-              <h3 className="font-mono text-sun mb-3">{skill.group}</h3>
-              <ul className="flex flex-col gap-1 text-muted">
-                {skill.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+        
+        <section className="reveal text-center border border-line rounded-2xl p-12 bg-surface">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Let&apos;s build something{" "}
+            <span className="text-sun">together</span>.
+          </h2>
+          <p className="mt-4 text-muted">
+            I&apos;m open to new opportunities and collaborations.
+          </p>
 
-      {/* Call to action */}
-      <section className="text-center border border-line rounded-2xl p-12 bg-surface">
-        <h2 className="text-3xl md:text-4xl font-bold">
-          Let&apos;s build something <span className="text-sun">together</span>.
-        </h2>
-        <p className="mt-4 text-muted">
-          I&apos;m open to new opportunities and collaborations.
-        </p>
-
-        <button
-          onClick={() => setIsContactOpen(true)}
-          className="inline-block mt-8 bg-skyblue text-ink font-semibold px-6 py-3 rounded-lg hover:bg-snow transition-colors duration-500"
-        >
-          Say Hello
-        </button>
-      </section>
+          <button
+            onClick={() => setIsContactOpen(true)}
+            className="inline-block mt-8 bg-skyblue text-ink font-semibold px-6 py-3 rounded-lg hover:bg-snow transition-colors duration-500"
+          >
+            Say Hello
+          </button>
+        </section>
+      </ScrollReveal>
+      <ContactModals
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
     </div>
   );
 };

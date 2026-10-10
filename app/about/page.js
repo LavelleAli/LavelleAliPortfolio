@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionHeading from '../../components/SectionHeading/sectionHeading';
+import Image from 'next/image';
 
 export const metadata = {
   title: "About | Lavelle Ali",
@@ -28,7 +29,7 @@ const aboutPage = () => {
 
         {/* Photo placeholder — swap for <Image src="/me.jpg" ... /> from next/image */}
         <div className='aspect-square rounded-2xl border-2 border-skyblue bg-surface flex items-center justify-center text-muted font-mono text-sm'>
-          your photo
+          <Image src="/Me.png" alt='ME' width={310} height={300} className='rounded-2xl' />
         </div>
       </div>
     </section>
