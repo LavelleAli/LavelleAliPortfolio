@@ -2,6 +2,7 @@ import React from 'react';
 import SectionHeading from '../../components/SectionHeading/sectionHeading';
 import ProjectCard from '../../components/ProjectCard/projectCard';
 import projects from '../../data/projects';
+import FadeIn from '@/components/Fader/FadeIn';
 
 export const metadata = {
   title: "Projects | Lavelle Ali",
@@ -9,7 +10,8 @@ export const metadata = {
 
 const projectsPage = () => {
   return (
-    <section>
+    <FadeIn>
+    <section className='fade'>
       <SectionHeading eyebrow='Work' title='Projects'>
         A collection of things I&apos;ve built. Add new ones in data/projects.js.
       </SectionHeading>
@@ -20,6 +22,7 @@ const projectsPage = () => {
         ))}
       </div>
     </section>
+    </FadeIn>
   )
 }
 
