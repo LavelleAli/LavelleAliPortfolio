@@ -1,6 +1,3 @@
-import { Axios } from "axios"
-
-
 const skills = [
   { group: 'Languages', items: ['HTML', 'CSS', 'JavaScript', 'TypeScript',] },
   { group: 'Frameworks', items: ['React', 'Next.js', 'Tailwind CSS'] },

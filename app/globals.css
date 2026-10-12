@@ -1,11 +1,6 @@
 @import "tailwindcss";
 
-/*
-  Color system
-  - Base:    black background
-  - Primary: sky blue, yellow, white
-  - Accents: coral, mint, violet (use sparingly — tags, highlights, hover states)
-*/
+
 :root {
   /* base */
   --ink: #000000;

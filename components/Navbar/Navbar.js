@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import FadeIn from "../Fader/FadeIn";
+import FadeIn from "../Animations/FadeIn";
 
 
 const navbar = () => {
@@ -15,7 +15,7 @@ const navbar = () => {
     <>
       <div className="navBar absolute top-70">
 
-        {/* <div className="rightSideLine absolute top-22 left-30 bg-sky-400 w-1 h-25 border border-sky-400 rounded-2xl"></div> */}
+        {/* <div className="rightSideLine absolute top-25 left-30 bg-sky-400 w-1 h-10 border border-sky-400 rounded-2xl"></div> */}
 
         <div className="topSideLine absolute top-16 left-10 w-15 border-b-2 border-sky-400 rounded-2xl shadow-sm shadow-sky-300"></div>
 

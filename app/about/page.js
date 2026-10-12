@@ -1,7 +1,7 @@
 import React from "react";
 import SectionHeading from "../../components/SectionHeading/sectionHeading";
 import Image from "next/image";
-import FadeIn from "@/components/Fader/FadeIn";
+import FadeIn from "@/components/Animations/FadeIn";
 import AudioPlayer from "@/components/AudioPlayer/AudioPlayer";
 
 export const metadata = {
@@ -17,16 +17,16 @@ const aboutPage = () => {
         <div className="grid gap-12 md:grid-cols-[2fr_1fr]">
           <div className="flex flex-col gap-4 text-muted leading-relaxed">
             <p>
-              I&apos;m a{" "}
-              <span className="text-skyblue">front-end web developer</span> who
+              I am a{" "}
+              <span className="text-skyblue">Frontend Web Developer</span> who
               enjoys turning designs into fast, accessible, and responsive
               websites.
             </p>
             <p>
-              I&apos;ve spent more than eight years fixing things that
+              I have spent more than eight years fixing things that
               couldn&apos;t stay broken: heavy equipment operation in the U.S.
               Air Force, HVAC systems across Atlanta, and wind turbines in the
-              field. Now I bring that same troubleshooting mindset to frontend
+              field. Now, I bring that same troubleshooting mindset to frontend
               development. I first got hooked on code in my mid teens, building
               a simple music site on my first laptop. Watching something
               I&apos;d imagined come to life stuck with me through the military

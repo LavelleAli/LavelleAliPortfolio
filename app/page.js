@@ -5,13 +5,14 @@ import SectionHeading from "../components/SectionHeading/sectionHeading";
 import ProjectCard from "../components/ProjectCard/projectCard";
 import projects from "../data/projects";
 import skills from "../data/skills";
-import FadeIn from "@/components/Fader/FadeIn";
+import FadeIn from "@/components/Animations/FadeIn";
 import SplitTextAnimation from "@/components/Animations/SplitText";
 import HoverChars from "@/components/Animations/HoverChars";
 import TextCycle from "@/components/Animations/TextCycle";
 import SglWrdAnima from "@/components/Animations/SglWrdAnima";
 import ContactModals from "@/components/Modals/ContactModals";
 import ScrollReveal from "@/components/Animations/ScrollReveal";
+
 
 const LandingPage = () => {
   const featured = projects.filter((project) => project.featured);

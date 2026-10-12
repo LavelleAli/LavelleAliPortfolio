@@ -35,7 +35,7 @@ const AudioPlayer = ({ src, title, artist, loop = false, className = "" }) => {
     setMuted(!muted);
   }
 
-  // Dragging the progress bar jumps the song to that point
+
   function seek(e) {
     const time = Number(e.target.value);
     audio.current.currentTime = time;
