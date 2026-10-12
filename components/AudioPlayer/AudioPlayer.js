@@ -1,5 +1,9 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+
+const FADE = 0.6; // seconds for play/pause fades
+const END_FADE = 10; // seconds to fade out before the song ends
 
 // Turns seconds into m:ss, e.g. 75 -> "1:15"
 function formatTime(seconds) {
@@ -15,15 +19,33 @@ const AudioPlayer = ({ src, title, artist, loop = false, className = "" }) => {
   const [muted, setMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const lastTime = useRef(0);
+
+  // The metadata can finish loading before React attaches onLoadedMetadata,
+  // so read the duration directly once the component mounts
+  useEffect(() => {
+    if (audio.current.readyState >= 1) setDuration(audio.current.duration);
+  }, []);
 
   async function togglePlay() {
+    const el = audio.current;
+    // Cancel any fade still running if the button is clicked quickly
+    gsap.killTweensOf(el);
+
     if (playing) {
-      audio.current.pause();
       setPlaying(false);
+      gsap.to(el, {
+        volume: 0,
+        duration: FADE,
+        ease: "power1.out",
+        onComplete: () => el.pause(),
+      });
     } else {
       try {
-        await audio.current.play();
+        el.volume = 0;
+        await el.play();
         setPlaying(true);
+        gsap.to(el, { volume: 1, duration: FADE, ease: "power1.in" });
       } catch (err) {
         console.error("Audio could not play", err);
       }
@@ -40,6 +62,7 @@ const AudioPlayer = ({ src, title, artist, loop = false, className = "" }) => {
     const time = Number(e.target.value);
     audio.current.currentTime = time;
     setCurrentTime(time);
+    if (playing && !gsap.isTweening(audio.current)) audio.current.volume = 1;
   }
 
   return (
@@ -52,7 +75,23 @@ const AudioPlayer = ({ src, title, artist, loop = false, className = "" }) => {
         loop={loop}
         preload="metadata"
         onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+        onDurationChange={(e) => setDuration(e.currentTarget.duration)}
+        onTimeUpdate={(e) => {
+          const el = e.currentTarget;
+          setCurrentTime(el.currentTime);
+
+          // Time jumped backwards (song looped or was dragged back): fade back in
+          if (el.currentTime < lastTime.current && !gsap.isTweening(el)) {
+            gsap.to(el, { volume: 1, duration: FADE, ease: "power1.in" });
+          }
+          lastTime.current = el.currentTime;
+
+          // Fade out over the last few seconds
+          const remaining = el.duration - el.currentTime;
+          if (remaining < END_FADE && !gsap.isTweening(el)) {
+            el.volume = Math.max(remaining / END_FADE, 0);
+          }
+        }}
         onEnded={() => setPlaying(false)}
       />
 
