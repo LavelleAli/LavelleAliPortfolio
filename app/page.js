@@ -26,14 +26,15 @@ const LandingPage = () => {
 
           <SplitTextAnimation>
             <HoverChars>
-              <h1 className="splitText text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              {/* clamp(min, preferred, max): grows smoothly with the screen width */}
+              <h1 className="splitText text-[clamp(2.25rem,7vw,6rem)] font-bold leading-tight">
                 Lavelle Ali<span className="text-sun">.</span>
               </h1>
             </HoverChars>
           </SplitTextAnimation>
 
           <SglWrdAnima delay={1.7}>
-            <h2 className="fade text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-muted">
+            <h2 className="fade text-[clamp(1.25rem,3vw,2.5rem)] font-semibold text-muted">
               <span className="grow-word inline-block">Welcome!</span> Thank you
               for visiting my portfolio — a showcase of my projects and
               passions.

@@ -46,8 +46,9 @@ export default function RootLayout({ children }) {
         </aside>
         <MobileNav />
 
-        <div className="flex-1 flex flex-col md:pl-48">
-          <main className="flex-1 w-full max-w-5xl 2xl:max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16">
+        {/* pb-20 on phones leaves room for the bottom tab bar */}
+        <div className="flex-1 flex flex-col pb-20 md:pb-0 md:pl-48">
+          <main className="flex-1 w-full max-w-5xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-16">
             {children}
           </main>
           <Footer />
