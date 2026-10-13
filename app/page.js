@@ -68,7 +68,7 @@ const LandingPage = () => {
 
       <ScrollReveal className="flex flex-col gap-20 md:gap-28">
         <section className="reveal">
-          <SectionHeading eyebrow="Works" title="Featured Projects" />
+          <SectionHeading eyebrow="Works" title="Featured Projects" center />
           <div className="grid gap-6 lg:grid-cols-2">
             {featured.map((project) => (
               <ProjectCard key={project.title} project={project} />
@@ -84,7 +84,7 @@ const LandingPage = () => {
 
         {/* Skills */}
         <section className="reveal">
-          <SectionHeading eyebrow="Toolkit" title="Skills" />
+          <SectionHeading eyebrow="Toolkit" title="Skills" center />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {skills.map((skill) => (
               <div
