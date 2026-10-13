@@ -23,6 +23,17 @@ export const metadata = {
     "Front-end web developer portfolio — projects, skills, and contact.",
 };
 
+/*
+  Screen sizes (Tailwind breakpoints) used across the site.
+  Classes with no prefix apply to every screen; a prefix means
+  "from this width and up".
+
+    (no prefix)  phones          0px and up
+    sm:          large phones    640px and up
+    md:          tablets         768px and up
+    lg:          laptops         1024px and up
+    2xl:         large desktops  1536px and up
+*/
 export default function RootLayout({ children }) {
   return (
     <html
@@ -36,7 +47,7 @@ export default function RootLayout({ children }) {
         <MobileNav />
 
         <div className="flex-1 flex flex-col md:pl-48">
-          <main className="flex-1 w-full max-w-5xl mx-auto px-6 py-16">
+          <main className="flex-1 w-full max-w-5xl 2xl:max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16">
             {children}
           </main>
           <Footer />

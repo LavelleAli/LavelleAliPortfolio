@@ -28,7 +28,7 @@ const ContactModals = ({ isOpen, onClose }) => {
   return (
     <div
       inert={!isOpen}
-      className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
     >
       <div
         onClick={handleClose}
@@ -36,7 +36,7 @@ const ContactModals = ({ isOpen, onClose }) => {
       ></div>
 
       <div
-        className={`relative bg-black border-0 rounded-lg shadow-[0_0_10px] shadow-sky-300/30 flex flex-col items-center p-8 transition-[scale,translate] duration-500 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"}`}
+        className={`relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-black border-0 rounded-lg shadow-[0_0_10px] shadow-sky-300/30 flex flex-col items-center p-6 sm:p-8 transition-[scale,translate] duration-500 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"}`}
       >
         <button
           type="button"
@@ -52,16 +52,16 @@ const ContactModals = ({ isOpen, onClose }) => {
 
         <div className="relative top-0 w-10 h-1 border-b border-sky-300 rounded-sm shadow-sm shadow-sky-300/50 z-1"></div>
 
-        <p className="mt-8">
+        <p className="mt-8 text-center">
           Have a questions or want to work together? Send me a message.
         </p>
 
         <form
           action={sendMessage}
-          className="w-150 h-100 flex flex-col items-center  mt-4 "
+          className="w-full flex flex-col mt-4"
         >
           <label htmlFor="name" className="flex flex-col mb-1">
-            <span className="text-sm text-sun ml-2">Name</span>
+            <span className="text-sm text-sun">Name</span>
           </label>
           <input
             id="name"
@@ -69,11 +69,11 @@ const ContactModals = ({ isOpen, onClose }) => {
             name="name"
             required
             placeholder="Enter Name"
-            className="w-80 ml-2 mb-4 rounded-sm shadow-sm shadow-sky-300/30 focus:outline-none focus:shadow-md focus:shadow-sky-300"
+            className="w-full mb-4 px-3 py-2 rounded-sm shadow-sm shadow-sky-300/30 focus:outline-none focus:shadow-md focus:shadow-sky-300"
           />
 
           <label htmlFor="email" className="flex flex-col mb-1">
-            <span className="text-sm text-sun ml-2">Email</span>
+            <span className="text-sm text-sun">Email</span>
           </label>
           <input
             id="email"
@@ -81,32 +81,32 @@ const ContactModals = ({ isOpen, onClose }) => {
             name="email"
             required
             placeholder="Enter Email"
-            className="ml-2 w-80 mb-4 rounded-sm shadow-sm shadow-sky-300/30 focus:outline-none focus:shadow-md focus:shadow-sky-300"
+            className="w-full mb-4 px-3 py-2 rounded-sm shadow-sm shadow-sky-300/30 focus:outline-none focus:shadow-md focus:shadow-sky-300"
           />
 
-          <label htmlFor="message" className="flex flex-col ml-2">
-            <span className="text-sm text-sun mb-2">Message</span>
+          <label htmlFor="message" className="flex flex-col mb-1">
+            <span className="text-sm text-sun">Message</span>
           </label>
           <textarea
             id="message"
             name="message"
             required
             placeholder="Type message here"
-            className="h-50 w-140 rounded-sm shadow-sm shadow-sky-300/40 focus:outline-none focus:shadow-md focus:shadow-sky-300"
+            className="w-full h-40 px-3 py-2 rounded-sm shadow-sm shadow-sky-300/40 focus:outline-none focus:shadow-md focus:shadow-sky-300"
           />
           <button
             type="submit"
             disabled={status === "sending"}
-            className="mt-4 w-20 border border-sky-300 rounded-lg p-2 hover:text-sun hover:scale-95 transition-all duration-400 focus:outline-none focus:shadow-md focus:shadow-sky-300"
+            className="mt-4 self-center px-6 border border-sky-300 rounded-lg p-2 hover:text-sun hover:scale-95 transition-all duration-400 focus:outline-none focus:shadow-md focus:shadow-sky-300"
           >
             {status === "sending" ? "Sending..." : "Send"}
           </button>
 
           {status === "sent" && (
-            <p className="text-sky-300 mt-2">Thanks! Your message was sent.</p>
+            <p className="text-sky-300 mt-2 text-center">Thanks! Your message was sent.</p>
           )}
           {status === "error" && (
-            <p className="text-sun mt-2">
+            <p className="text-sun mt-2 text-center">
               Something went wrong. Please try again.
             </p>
           )}

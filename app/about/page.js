@@ -14,7 +14,7 @@ const aboutPage = () => {
       <section className="fade">
         <SectionHeading eyebrow="A few things" title="About Me" />
 
-        <div className="grid gap-12 md:grid-cols-[2fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[2fr_1fr]">
           <div className="flex flex-col gap-4 text-muted leading-relaxed">
             <p>
               I am a{" "}
@@ -44,14 +44,15 @@ const aboutPage = () => {
           </div>
 
           {/* Photo placeholder — swap for <Image src="/me.jpg" ... /> from next/image */}
-          <div className="flex flex-col gap-6">
+          {/* Narrow on phones/tablets so the photo isn't huge; fills its column on laptops */}
+          <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none">
             <div className="aspect-square rounded-2xl border-2 border-skyblue bg-surface flex items-center justify-center text-muted font-mono text-sm">
               <Image
                 src="/Me.png"
                 alt="ME"
                 width={410}
                 height={300}
-                className="rounded-2xl"
+                className="rounded-2xl w-full h-auto"
               />
             </div>
 

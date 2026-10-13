@@ -19,21 +19,21 @@ const LandingPage = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
-    <div className="flex flex-col gap-28">
+    <div className="flex flex-col gap-20 md:gap-28">
       <FadeIn>
         <section className="min-h-[60vh] flex flex-col justify-center gap-6">
           <p className="fade font-mono text-skyblue ">Hi, my name is</p>
 
           <SplitTextAnimation>
             <HoverChars>
-              <h1 className="splitText text-5xl md:text-7xl font-bold leading-tight">
+              <h1 className="splitText text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 Lavelle Ali<span className="text-sun">.</span>
               </h1>
             </HoverChars>
           </SplitTextAnimation>
 
           <SglWrdAnima delay={1.7}>
-            <h2 className="fade text-2xl md:text-4xl font-semibold text-muted">
+            <h2 className="fade text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-muted">
               <span className="grow-word inline-block">Welcome!</span> Thank you
               for visiting my portfolio — a showcase of my projects and
               passions.
@@ -65,10 +65,10 @@ const LandingPage = () => {
         </section>
       </FadeIn>
 
-      <ScrollReveal className="flex flex-col gap-28">
+      <ScrollReveal className="flex flex-col gap-20 md:gap-28">
         <section className="reveal">
           <SectionHeading eyebrow="Works" title="Featured Projects" />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2">
             {featured.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
@@ -84,7 +84,7 @@ const LandingPage = () => {
         {/* Skills */}
         <section className="reveal">
           <SectionHeading eyebrow="Toolkit" title="Skills" />
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {skills.map((skill) => (
               <div
                 key={skill.group}
@@ -102,8 +102,8 @@ const LandingPage = () => {
         </section>
 
         
-        <section className="reveal text-center border border-line rounded-2xl p-12 bg-surface">
-          <h2 className="text-3xl md:text-4xl font-bold">
+        <section className="reveal text-center border border-line rounded-2xl p-8 md:p-12 bg-surface">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             Let&apos;s build something{" "}
             <span className="text-sun">amazing</span>.
           </h2>
