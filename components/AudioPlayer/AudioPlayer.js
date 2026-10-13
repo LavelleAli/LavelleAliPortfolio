@@ -2,8 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-const FADE = 0.6; // seconds for play/pause fades
-const END_FADE = 10; // seconds to fade out before the song ends
+const FADE = 0.6; 
+const END_FADE = 10;
 
 // Turns seconds into m:ss, e.g. 75 -> "1:15"
 function formatTime(seconds) {
@@ -21,15 +21,14 @@ const AudioPlayer = ({ src, title, artist, loop = false, className = "" }) => {
   const [duration, setDuration] = useState(0);
   const lastTime = useRef(0);
 
-  // The metadata can finish loading before React attaches onLoadedMetadata,
-  // so read the duration directly once the component mounts
+
   useEffect(() => {
     if (audio.current.readyState >= 1) setDuration(audio.current.duration);
   }, []);
 
   async function togglePlay() {
     const el = audio.current;
-    // Cancel any fade still running if the button is clicked quickly
+
     gsap.killTweensOf(el);
 
     if (playing) {

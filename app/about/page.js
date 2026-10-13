@@ -56,8 +56,8 @@ const aboutPage = () => {
             </div>
 
             <AudioPlayer
-              src="/Palace Life.wav"
-              title="Palace Life"
+              src="/Meaztro.wav"
+              title="Mind over Matter"
               artist="Prod. by Lavelle Ali"
               loop
             />
