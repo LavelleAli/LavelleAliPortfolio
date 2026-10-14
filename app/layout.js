@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import Navbar from "../components/Navbar/Navbar";
 import MobileNav from "../components/MobileNav/mobileNav";
 import Footer from "../components/Footer/footer";
+import ToggleTheme from "@/components/ThemeToggle/ToggleTheme";
 config.autoAddCss = false;
 
 const geistSans = Geist({
@@ -23,30 +24,30 @@ export const metadata = {
     "Front-end web developer portfolio — projects, skills, and contact.",
 };
 
-/*
-  Screen sizes (Tailwind breakpoints) used across the site.
-  Classes with no prefix apply to every screen; a prefix means
-  "from this width and up".
 
-    (no prefix)  phones          0px and up
-    sm:          large phones    640px and up
-    md:          tablets         768px and up
-    lg:          laptops         1024px and up
-    2xl:         large desktops  1536px and up
-*/
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script 
+        dangerouslySetInnerHTML={{
+            __html: `if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light";`,
+          }}/>
+         
+        
+      </head>
       <body className="min-h-full flex flex-col bg-ink text-snow">
         <aside className="hidden md:block fixed left-0 top-0 h-full w-48">
           <Navbar />
         </aside>
         <MobileNav />
+        <ToggleTheme />
 
-        {/* pb-20 on phones leaves room for the bottom tab bar */}
+       
         <div className="flex-1 flex flex-col pb-20 md:pb-0 md:pl-48">
           <main className="flex-1 w-full max-w-5xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-16">
             {children}
