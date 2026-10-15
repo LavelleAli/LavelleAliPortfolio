@@ -15,8 +15,6 @@ const HoverChars = ({ children, className }) => {
       });
 
       split.chars.forEach((char) => {
-        const startColor = getComputedStyle(char).color;
-
         char.addEventListener("mouseenter", () => {
           gsap.to(char, {
             y: -6,
@@ -32,10 +30,11 @@ const HoverChars = ({ children, className }) => {
           gsap.to(char, {
             y: 0,
             scale: 1,
-            color: startColor,
+            color: getComputedStyle(char.parentElement).color,
             duration: 0.4,
             ease: "power2.out",
             overwrite: "auto",
+            onComplete: () => gsap.set(char, { clearProps: "color" }),
           });
         });
       });

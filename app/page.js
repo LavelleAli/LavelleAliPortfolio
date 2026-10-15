@@ -13,7 +13,6 @@ import SglWrdAnima from "@/components/Animations/SglWrdAnima";
 import ContactModals from "@/components/Modals/ContactModals";
 import ScrollReveal from "@/components/Animations/ScrollReveal";
 
-
 const LandingPage = () => {
   const featured = projects.filter((project) => project.featured);
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -26,9 +25,8 @@ const LandingPage = () => {
 
           <SplitTextAnimation>
             <HoverChars>
-              {/* clamp(min, preferred, max): grows smoothly with the screen width */}
               <h1 className="splitText text-[clamp(2.25rem,7vw,6rem)] font-bold leading-tight">
-                Lavelle Ali<span className="text-sun">.</span>
+                Lavelle Ali<span className="text-sun">.</span> 
               </h1>
             </HoverChars>
           </SplitTextAnimation>
@@ -102,11 +100,10 @@ const LandingPage = () => {
           </div>
         </section>
 
-        
         <section className="reveal text-center border border-line rounded-2xl p-8 md:p-12 bg-surface">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-            Let&apos;s build something{" "}
-            <span className="text-sun">amazing</span>.
+            Let&apos;s build something <span className="text-sun">amazing</span>
+            .
           </h2>
           <p className="mt-4 text-muted">
             I&apos;m open to new opportunities and collaborations.

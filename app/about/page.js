@@ -43,8 +43,7 @@ const aboutPage = () => {
             </p>
           </div>
 
-          {/* Photo placeholder — swap for <Image src="/me.jpg" ... /> from next/image */}
-          {/* Narrow on phones/tablets so the photo isn't huge; fills its column on laptops */}
+         
           <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none">
             <div className="aspect-square rounded-2xl border-2 border-skyblue bg-surface flex items-center justify-center text-muted font-mono text-sm">
               <Image
