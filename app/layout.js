@@ -6,6 +6,8 @@ import Navbar from "../components/Navbar/Navbar";
 import MobileNav from "../components/MobileNav/mobileNav";
 import Footer from "../components/Footer/footer";
 import ToggleTheme from "@/components/ThemeToggle/ToggleTheme";
+import MouseAnimation from "@/components/Animations/MouseAnimation";
+import ContactModals from "@/components/Modals/ContactModals";
 config.autoAddCss = false;
 
 const geistSans = Geist({
@@ -45,7 +47,8 @@ export default function RootLayout({ children }) {
           <Navbar />
         </aside>
         <MobileNav />
-        <ToggleTheme />
+        <ToggleTheme/>
+        
 
        
         <div className="flex-1 flex flex-col pb-20 md:pb-0 md:pl-48">

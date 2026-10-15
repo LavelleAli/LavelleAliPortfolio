@@ -12,6 +12,8 @@ import TextCycle from "@/components/Animations/TextCycle";
 import SglWrdAnima from "@/components/Animations/SglWrdAnima";
 import ContactModals from "@/components/Modals/ContactModals";
 import ScrollReveal from "@/components/Animations/ScrollReveal";
+import MouseAnimation from "@/components/Animations/MouseAnimation";
+
 
 const LandingPage = () => {
   const featured = projects.filter((project) => project.featured);
@@ -19,6 +21,9 @@ const LandingPage = () => {
 
   return (
     <div className="flex flex-col gap-20 md:gap-28">
+      <MouseAnimation>
+        <div>This is the mouseChaser</div>
+      </MouseAnimation>
       <FadeIn>
         <section className="min-h-[60vh] flex flex-col justify-center gap-6">
           <p className="fade font-mono text-skyblue ">Hi, my name is</p>
@@ -26,7 +31,7 @@ const LandingPage = () => {
           <SplitTextAnimation>
             <HoverChars>
               <h1 className="splitText text-[clamp(2.25rem,7vw,6rem)] font-bold leading-tight">
-                Lavelle Ali<span className="text-sun">.</span> 
+                Lavelle Ali<span className="text-sun">.</span>
               </h1>
             </HoverChars>
           </SplitTextAnimation>
@@ -117,6 +122,7 @@ const LandingPage = () => {
           </button>
         </section>
       </ScrollReveal>
+
       <ContactModals
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}

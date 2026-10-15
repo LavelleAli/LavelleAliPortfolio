@@ -10,11 +10,9 @@ const links = [
   { href: "/projects", label: "Projects", icon: faFolderOpen },
 ];
 
-// App-style tab bar fixed to the bottom of the screen on phones,
-// where it's easy to reach with a thumb. Hidden from md (tablets) up,
-// where the side nav takes over.
+
 const MobileNav = () => {
-  // The current page's path, e.g. "/about", used to highlight its tab
+ 
   const pathname = usePathname();
 
   return (
