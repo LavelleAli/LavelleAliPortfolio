@@ -36,7 +36,7 @@ const ContactModals = ({ isOpen, onClose }) => {
       ></div>
 
       <div
-        className={`relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-black border-0 rounded-lg shadow-[0_0_10px] shadow-sky-300/30 flex flex-col items-center p-6 sm:p-8 transition-[scale,translate] duration-500 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"}`}
+        className={`relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-ink border-0 rounded-lg shadow-[0_0_10px] shadow-sky-300/30 flex flex-col items-center p-6 sm:p-8 transition-[scale,translate] duration-500 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"}`}
       >
         <button
           type="button"
