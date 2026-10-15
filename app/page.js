@@ -12,7 +12,7 @@ import TextCycle from "@/components/Animations/TextCycle";
 import SglWrdAnima from "@/components/Animations/SglWrdAnima";
 import ContactModals from "@/components/Modals/ContactModals";
 import ScrollReveal from "@/components/Animations/ScrollReveal";
-import MouseAnimation from "@/components/Animations/MouseAnimation";
+
 
 
 const LandingPage = () => {
@@ -21,9 +21,7 @@ const LandingPage = () => {
 
   return (
     <div className="flex flex-col gap-20 md:gap-28">
-      <MouseAnimation>
-        <div>This is the mouseChaser</div>
-      </MouseAnimation>
+      
       <FadeIn>
         <section className="min-h-[60vh] flex flex-col justify-center gap-6">
           <p className="fade font-mono text-skyblue ">Hi, my name is</p>

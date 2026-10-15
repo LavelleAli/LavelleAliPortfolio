@@ -7,7 +7,7 @@ import MobileNav from "../components/MobileNav/mobileNav";
 import Footer from "../components/Footer/footer";
 import ToggleTheme from "@/components/ThemeToggle/ToggleTheme";
 import MouseAnimation from "@/components/Animations/MouseAnimation";
-import ContactModals from "@/components/Modals/ContactModals";
+
 config.autoAddCss = false;
 
 const geistSans = Geist({
@@ -26,7 +26,6 @@ export const metadata = {
     "Front-end web developer portfolio — projects, skills, and contact.",
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html
@@ -35,22 +34,20 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        <script 
-        dangerouslySetInnerHTML={{
+        <script
+          dangerouslySetInnerHTML={{
             __html: `if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light";`,
-          }}/>
-         
-        
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-ink text-snow">
         <aside className="hidden md:block fixed left-0 top-0 h-full w-48">
           <Navbar />
         </aside>
         <MobileNav />
-        <ToggleTheme/>
-        
+        <ToggleTheme />
+        <MouseAnimation />
 
-       
         <div className="flex-1 flex flex-col pb-20 md:pb-0 md:pl-48">
           <main className="flex-1 w-full max-w-5xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-16">
             {children}

@@ -13,7 +13,7 @@ const navbar = () => {
 
   return (
     <>
-      <div className="navBar absolute top-70">
+      <div className="navBar absolute top-70 ">
 
         {/* <div className="rightSideLine absolute top-25 left-30 bg-sky-400 w-1 h-10 border border-sky-400 rounded-2xl"></div> */}
 
@@ -22,7 +22,7 @@ const navbar = () => {
         <div className="bottomSideLine absolute top-46 left-10 w-15 border-b-2 border-sky-400 rounded-2xl shadow-sm shadow-sky-400"></div>
 
         <FadeIn>
-          <div className="fade flex flex-col gap-4 absolute top-20 left-10 text-sm">
+          <div className="fade flex flex-col gap-4 absolute top-20 left-10 text-sm ">
             {links.map((link) => {
               return (
                 <Link
