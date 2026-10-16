@@ -1,6 +1,6 @@
 import React from "react";
 import SectionHeading from "../../components/SectionHeading/sectionHeading";
-import ProjectSlider from "@/components/Animations/ProjectSlider";
+import ProjectSliderAuto from "@/components/Animations/ProjectSliderAuto";
 import FadeIn from "@/components/Animations/FadeIn";
 
 export const metadata = {
@@ -15,7 +15,7 @@ const projectsPage = () => {
           A collection of things I&apos;ve built.
         </SectionHeading>
 
-        <ProjectSlider />
+        <ProjectSliderAuto />
       </section>
     </FadeIn>
   );

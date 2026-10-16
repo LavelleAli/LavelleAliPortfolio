@@ -12,6 +12,7 @@ import TextCycle from "@/components/Animations/TextCycle";
 import SglWrdAnima from "@/components/Animations/SglWrdAnima";
 import ContactModals from "@/components/Modals/ContactModals";
 import ScrollReveal from "@/components/Animations/ScrollReveal";
+import ProjectSlider from "@/components/Animations/ProjectSlider";
 
 
 
@@ -70,17 +71,19 @@ const LandingPage = () => {
       <ScrollReveal className="flex flex-col gap-20 md:gap-28">
         <section className="reveal">
           <SectionHeading eyebrow="Works" title="Featured Projects" center />
-          <div className="grid gap-6 lg:grid-cols-2">
+          {/* <div className="grid gap-6 lg:grid-cols-2">
             {featured.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
-          </div>
+          </div> */}
+          <ProjectSlider/>
           <Link
             href="/projects"
-            className="inline-block mt-8 text-skyblue hover:text-sun transition-colors"
+            className="inline-block relative left-55 mt-8 text-skyblue hover:text-sun transition-colors"
           >
             See all projects →
           </Link>
+          
         </section>
 
         {/* Skills */}

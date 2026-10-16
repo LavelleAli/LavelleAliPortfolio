@@ -8,7 +8,7 @@ const tagColors = [
 
 const projectCard = ({ project }) => {
   return (
-    <article className="group flex flex-col bg-surface border border-line rounded-xl p-6 transition-colors hover:border-skyblue duration-900">
+    <article className="group flex flex-col bg-surface border border-line rounded-xl p-6 transition-colors hover:border-skyblue duration-900 w-150 h-80 text-center">
       <h3 className="text-xl font-semibold group-hover:text-skyblue transition-colors">
         {project.title}
       </h3>
