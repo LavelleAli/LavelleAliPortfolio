@@ -79,7 +79,7 @@ const LandingPage = () => {
           <ProjectSlider/>
           <Link
             href="/projects"
-            className="inline-block relative left-55 mt-8 text-skyblue hover:text-sun transition-colors"
+            className="inline-block relative left-80 mt-8 text-skyblue hover:text-sun transition-colors"
           >
             See all projects →
           </Link>
