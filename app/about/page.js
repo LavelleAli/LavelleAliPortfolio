@@ -48,7 +48,7 @@ const aboutPage = () => {
             <div className="rounded-2xl border-2 border-skyblue bg-surface overflow-hidden">
               <Image
                 src="/Me.png"
-                alt="ME"
+                alt="Lavelle Ali"
                 width={640}
                 height={854}
                 className="block w-full h-auto"
