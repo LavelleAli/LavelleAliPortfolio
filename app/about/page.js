@@ -45,13 +45,13 @@ const aboutPage = () => {
 
          
           <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none">
-            <div className="aspect-square rounded-2xl border-2 border-skyblue bg-surface flex items-center justify-center text-muted font-mono text-sm">
+            <div className="rounded-2xl border-2 border-skyblue bg-surface overflow-hidden">
               <Image
                 src="/Me.png"
                 alt="ME"
-                width={410}
-                height={300}
-                className="rounded-2xl w-full h-auto"
+                width={640}
+                height={854}
+                className="block w-full h-auto"
               />
             </div>
 
