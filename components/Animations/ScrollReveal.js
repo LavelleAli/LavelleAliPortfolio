@@ -9,7 +9,10 @@ const ScrollReveal = ({ children, className }) => {
   const container = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia(container);
+
+    // Skip the animation for visitors who have reduced motion turned on
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.utils.toArray(".reveal").forEach((item) => {
         gsap.from(item, {
           opacity: 0,
@@ -25,9 +28,23 @@ const ScrollReveal = ({ children, className }) => {
           },
         });
       });
-    }, container);
+    });
 
-    return () =>  ctx.revert();
+    // Content above can change height after load (slider setup, fonts, images).
+    // Re-measure trigger points when the page height changes, otherwise a
+    // section's start can end up past the bottom of the page and never reveal.
+    let timer;
+    const observer = new ResizeObserver(() => {
+      clearTimeout(timer);
+      timer = setTimeout(() => ScrollTrigger.refresh(), 100);
+    });
+    observer.observe(document.body);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+      mm.revert();
+    };
   }, []);
 
   return <div ref={container} className={className}>

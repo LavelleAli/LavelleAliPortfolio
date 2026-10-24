@@ -1,9 +1,7 @@
-import React from "react";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/Addons.js";
-import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import System, {
   SpriteRenderer,
+  MeshRenderer,
   Emitter,
   Rate,
   Span,
@@ -17,30 +15,61 @@ import System, {
   Scale,
   Color,
   PointZone,
+  Texture,
+  Body,
+  Rotate,
+  Gravity,
+  BoxZone,
 } from "three-nebula";
 
-const threeNebula = () => {
-  const controls = new OrbitControls(camera, rendererReference.domElement);
-  const loader = new GLTFLoader();
+function threeNebula(scene) {
   const system = new System();
-  const renderer = new SpriteRenderer(threeScene, THREE);
+  const renderer = new MeshRenderer(scene, THREE);
   const emitter = new Emitter();
 
+  // Color Scheme:
+  const YELLOW_200 = "#fef08a";
+  const SKYBLUE_200 = "#bae6fd";
+  const RED_200 = "#fecaca";
+  const EMERALD_900 = "#064e3b";
+  const AMBER_900 = "#78350f";
+  const INDIGO_900 = "#312e81";
+
+  const geometry = new THREE.SphereGeometry(0.15, 8, 6);
+  const material = new THREE.MeshBasicMaterial({ color: "skyblue" });
+  const sphere = new THREE.Mesh(geometry, material);
+
   emitter
-    .setRate(new Rate(new Span(4, 16), new Span(0.01)))
+    .setRate(new Rate(new Span(10, 50), new Span(0, 0.5)))
     .setInitializers([
-      new Position(new PointZone(0, 0)),
-      new Mass(1),
-      new Radius(6, 12),
-      new Life(3),
-      new RadialVelocity(45, new Vector3D(0, 1, 0), 180),
+      new Position(new BoxZone(20, 20, 20)),
+      // new Position( new PointZone(0, 0,) ),
+      new Mass(0.5),
+      new Life(1, 3),
+      // new Life( 1, 10 ),
+      // new RadialVelocity( 3, new Vector3D(0, -1, -1), 180),
+      new Body(sphere),
     ])
     .setBehaviours([
       new Alpha(1, 0),
-      new Scale(0.1, 1.3),
-      new Color(new THREE.Color(0xff0000), new THREE.Color(0x0000ff)),
+      new Scale(0.15, 0),
+      new Color(
+        [
+          // Dark Theme Colors:
+          new THREE.Color(YELLOW_200),
+          new THREE.Color(SKYBLUE_200),
+          new THREE.Color(RED_200),
+          new THREE.Color("white"),
+          // Light Theme Colors:
+          new THREE.Color(EMERALD_900),
+          new THREE.Color(AMBER_900),
+          new THREE.Color(INDIGO_900),
+        ],
+        "random",
+      ),
+      new Rotate("random"),
     ])
-    .emit();
+    .emit(Infinity);
 
   system
     .addRenderer(renderer)
@@ -51,14 +80,7 @@ const threeNebula = () => {
       onEnd: () => {},
     });
 
-    const animate = () => {
-  system.update();
-  requestAnimationFrame(animate);
-};
-requestAnimationFrame(animate);
-
-
-  return <div>threeNebula</div>;
-};
+  return system;
+}
 
 export default threeNebula;

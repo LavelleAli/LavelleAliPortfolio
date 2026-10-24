@@ -47,7 +47,7 @@ const ProjectSlider = () => {
             key={project.title}
             className="keen-slider__slide flex items-center justify-center"
           >
-            <div style={scaleStyle(idx)}>
+            <div style={scaleStyle(idx)} className="w-full h-full flex justify-center">
               <ProjectCard project={project} />
             </div>
           </div>

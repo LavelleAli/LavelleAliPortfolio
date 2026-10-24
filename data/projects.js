@@ -20,18 +20,18 @@ const projects = [
   },
   {
     title: "Netflix Clone",
-    description: "A 2023 clone of the movie streaming service Netflix",
+    description: "A Netflix-style streaming UI built with React and Vite. Users sign up or sign in with Firebase Authentication, browse rows of real movie data pulled from The Movie Database (TMDB), and click any title to watch its trailer.",
     tags: ["HTML", "CSS", "JavaScript"],
     liveUrl: "https://netflix-clone-lavelle-ali.vercel.app/",
     repoUrl: "https://github.com/LavelleAli/Project004-Netflix-Clone.git",
     featured: false,
   },
   {
-    title: "JavaScript Drumkit",
-    description: "A personal project that is intended to be ongoing. It's a simple drumkit that is played via keyboard made with JavaScript.",
-    tags: ["HTML", "CSS", "JavaScript", "GSAP"],
-    liveUrl: "https://java-script-drum-kit-ten.vercel.app/",
-    repoUrl: "https://github.com/LavelleAli/javaScriptDrumKit.git",
+    title: "Ultraverse NFT Store",
+    description: "A responsive NFT marketplace front end built with React. Visitors can browse trending collections, newly listed items and top sellers, explore and sort the full catalog, and open author profiles and item detail pages. All of the content comes from a live REST API.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "https://nft-store-sepia.vercel.app/",
+    repoUrl: "https://github.com/LavelleAli/NFT-Store.git",
     featured: false,
   }
 ];

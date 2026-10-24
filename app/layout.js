@@ -7,6 +7,7 @@ import MobileNav from "../components/MobileNav/mobileNav";
 import Footer from "../components/Footer/footer";
 import ToggleTheme from "@/components/ThemeToggle/ToggleTheme";
 import MouseAnimation from "@/components/Animations/MouseAnimation";
+import Space3d from "@/components/threejs/Space3d";
 
 config.autoAddCss = false;
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="min-h-full flex flex-col bg-ink text-snow">
         <aside className="hidden md:block fixed left-0 top-0 h-full w-48">
+        <Space3d  />
           <Navbar />
         </aside>
         <MobileNav />

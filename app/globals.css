@@ -59,3 +59,21 @@ body {
   background: var(--sun);
   color: var(--ink);
 }
+
+/*
+  Large screens: QHD/ultrawide monitors and 4K TVs.
+  Tailwind sizes are in rem, so raising the root font size scales text,
+  spacing and layout together instead of leaving a small column in the middle.
+  Percentages (not px) keep the visitor's own browser font-size setting.
+*/
+@media (min-width: 2200px) {
+  html {
+    font-size: 125%;
+  }
+}
+
+@media (min-width: 3200px) {
+  html {
+    font-size: 200%;
+  }
+}

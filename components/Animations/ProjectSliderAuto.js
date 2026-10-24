@@ -50,7 +50,7 @@ const ProjectSliderAuto = () => {
                 key={project.title}
                 className="keen-slider__slide flex items-center justify-center"
             >
-                <div>
+                <div className="w-full h-full flex justify-center">
                 <ProjectCard project={project} />
                 </div>
             </div>
