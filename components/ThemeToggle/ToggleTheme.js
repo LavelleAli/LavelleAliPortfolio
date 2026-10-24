@@ -16,7 +16,7 @@ const ToggleTheme = () => {
       type="button"
       onClick={toggleTheme}
       aria-label="Toggle light and dark theme"
-      className="fixed flex items-center justify-center space-x-1 top-4 right-4 z-20 w-24 h-8 rounded-full border border-line bg-surface text-sun hover:border-skyblue transition-colors"
+      className="absolute md:fixed flex items-center justify-center space-x-1 top-4 right-4 z-20 w-24 h-8 rounded-full border border-line bg-surface text-sun hover:border-skyblue transition-colors"
     >
       <FontAwesomeIcon icon={faMoon} className="text-xs light:inline-block" />
       <span

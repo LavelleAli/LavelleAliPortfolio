@@ -132,7 +132,7 @@ const AudioPlayer = ({ src, title, artist, loop = false, className = "" }) => {
             value={currentTime}
             onChange={seek}
             aria-label="Seek"
-            className="flex-1 h-1 accent-skyblue cursor-pointer"
+            className="flex-1 min-w-0 h-1 accent-skyblue cursor-pointer"
           />
           <span className="font-mono text-xs text-muted w-9 text-right">{formatTime(duration)}</span>
         </div>
