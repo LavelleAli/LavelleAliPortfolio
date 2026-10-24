@@ -116,7 +116,7 @@ const Space3d = () => {
     <div
       ref={mountRef}
       aria-hidden="true"
-      className="fixed inset-0 -z10 pointer-events-none"
+      className="fixed inset-0 -z-10 pointer-events-none"
     ></div>
   );
 };

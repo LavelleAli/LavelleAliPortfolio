@@ -43,12 +43,12 @@ export default function RootLayout({ children }) {
       </head>
       <body className="min-h-full flex flex-col bg-ink text-snow">
         <aside className="hidden md:block fixed left-0 top-0 h-full w-48">
-        <Space3d  />
           <Navbar />
         </aside>
         <MobileNav />
         <ToggleTheme />
         <MouseAnimation />
+        <Space3d  />
 
         <div className="flex-1 flex flex-col pb-20 md:pb-0 md:pl-48">
           <main className="flex-1 w-full max-w-5xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-16">
