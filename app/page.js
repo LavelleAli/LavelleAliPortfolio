@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import SectionHeading from "../components/SectionHeading/sectionHeading";
-import ProjectCard from "../components/ProjectCard/projectCard";
 import projects from "../data/projects";
 import skills from "../data/skills";
 import FadeIn from "@/components/Animations/FadeIn";
@@ -14,15 +13,12 @@ import ContactModals from "@/components/Modals/ContactModals";
 import ScrollReveal from "@/components/Animations/ScrollReveal";
 import ProjectSlider from "@/components/Animations/ProjectSlider";
 
-
-
 const LandingPage = () => {
   const featured = projects.filter((project) => project.featured);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <div className="flex flex-col gap-20 md:gap-28">
-      
       <FadeIn>
         <section className="min-h-[60vh] flex flex-col justify-center gap-6">
           <p className="fade font-mono text-skyblue ">Hi, my name is</p>
@@ -76,14 +72,13 @@ const LandingPage = () => {
               <ProjectCard key={project.title} project={project} />
             ))}
           </div> */}
-          <ProjectSlider/>
+          <ProjectSlider />
           <Link
             href="/projects"
             className="block w-fit mx-auto mt-8 text-skyblue hover:text-sun transition-colors"
           >
             See all projects →
           </Link>
-          
         </section>
 
         {/* Skills */}

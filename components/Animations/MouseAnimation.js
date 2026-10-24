@@ -4,8 +4,10 @@ import gsap from "gsap";
 
 const MouseAnimation = ({ children }) => {
   const chaser = useRef(null);
-
+  
   useEffect(() => {
+    const html = document.documentElement;
+
     gsap.set(chaser.current, { xPercent: -50, yPercent: -50 });
     const xTo = gsap.quickTo(chaser.current, "x", {
       duration: 0.5,
@@ -18,9 +20,18 @@ const MouseAnimation = ({ children }) => {
     let visible = false;
 
     function followMouse(e) {
+      if (e.pointerType === "touch") return;
+      moveTo(e.clientX, e.clientY);
+    }
+    function followTouch(e) {
+      const touch = e.touches[0];
+      if ( touch ) moveTo(touch.clientX, touch.clientY)
+    }
+
+    function moveTo(x, y) {
       if (!visible) {
-        xTo(e.clientX, e.clientX);
-        yTo(e.clientY, e.clientY);
+        xTo(x, x);
+        yTo(y, y);
         visible = true;
         gsap.to(chaser.current, {
           opacity: 1,
@@ -28,17 +39,37 @@ const MouseAnimation = ({ children }) => {
           overwrite: "auto",
         });
       } else {
-        xTo(e.clientX);
-        yTo(e.clientY);
+        xTo(x);
+        yTo(y);
       }
     }
 
-    document.documentElement.addEventListener("mouseleave", () => {
+    function hideChaser() {
       visible = false;
-      gsap.to(chaser.current, { opacity: 0, duration: 0.3, overwrite: "auto" });
-    });
+      gsap.to(chaser.current, {
+        opacity: 0,
+        duration: 0.3,
+        overwrite: "auto",
+      });
+    }
+
+    
     window.addEventListener("pointermove", followMouse);
-    return () => window.removeEventListener("pointermove", followMouse);
+    html.addEventListener("mouseleave", hideChaser);
+
+    window.addEventListener("touchstart", followTouch, { passive: true });
+    window.addEventListener("touchmove", followTouch, { passive: true });
+    window.addEventListener("touchend", hideChaser);
+    window.addEventListener("touchcancel", hideChaser);
+
+    return () => {
+      window.removeEventListener("pointermove", followMouse);
+      html.removeEventListener("mouseleave", hideChaser);
+      window.removeEventListener("touchstart", followTouch);
+      window.removeEventListener("touchmove", followTouch);
+      window.removeEventListener("touchend", hideChaser);
+      window.removeEventListener("touchcancel", hideChaser);
+    };
   }, []);
 
   return (

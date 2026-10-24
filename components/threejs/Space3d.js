@@ -24,7 +24,7 @@ const Space3d = () => {
       1000,
     );
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     mount.appendChild(renderer.domElement);
 
@@ -55,23 +55,31 @@ const Space3d = () => {
     const mouse = {
       x: 0,
       y: 0,
-    }
+    };
 
     let lastMoveTime = 0;
 
-    function cameraMotion(e) {
-      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = (e.clientY / window.innerHeight) * -2 + 1;
+    function aimCamera(x, y) {
+      mouse.x = (x / window.innerWidth) * 2 - 1;
+      mouse.y = (y / window.innerHeight) * -2 + 1;
       lastMoveTime = performance.now();
     }
-    window.addEventListener("pointermove", cameraMotion);
+
+    function cameraMotion(e) {
+      if (e.pointerType === "touch") return;
+      aimCamera(e.clientX, e.clientY);
+    }
+
+    function cameraTouch(e) {
+      const touch = e.touches[0];
+      if (touch) aimCamera(touch.clientX, touch.clientY);
+    }
 
     function handleResize() {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     }
-    window.addEventListener("resize", handleResize);
 
     //  Behaviour:
     function animate(time) {
@@ -97,6 +105,11 @@ const Space3d = () => {
 
     renderer.setAnimationLoop(animate);
 
+    window.addEventListener("pointermove", cameraMotion);
+    window.addEventListener("touchstart", cameraTouch, { passive: true });
+    window.addEventListener("touchmove", cameraTouch, { passive: true });
+    window.addEventListener("resize", handleResize);
+
     // Clean up:
     return () => {
       stillActive = false;
@@ -108,7 +121,9 @@ const Space3d = () => {
       material.dispose();
       mount.removeChild(renderer.domElement);
       window.removeEventListener("pointermove", cameraMotion);
-      window.removeEventListener("resize", handleResize)
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("touchstart", cameraTouch);
+      window.removeEventListener("touchmove", cameraTouch);
     };
   }, []);
 
