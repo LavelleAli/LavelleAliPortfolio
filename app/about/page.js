@@ -15,7 +15,7 @@ const aboutPage = () => {
         <SectionHeading eyebrow="A few things" title="About Me" />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr]">
-          <div className="flex flex-col gap-4 text-muted text-lg leading-relaxed bg-ink/25 backdrop-blur-sm lg:rounded-2xl -mx-4 p-4 sm:-mx-6 sm:p-6">
+          <div className="flex flex-col gap-4 text-muted text-lg leading-relaxed [text-shadow:0_1px_8px_var(--ink)] bg-ink/25 backdrop-blur-sm lg:rounded-2xl -mx-4 p-4 sm:-mx-6 sm:p-6">
             <p>
               I am a{" "}
               <span className="text-skyblue">Frontend Web Developer</span> who

@@ -27,7 +27,7 @@ const projects = [
     featured: false,
   },
   {
-    title: "Ultraverse NFT Store",
+    title: "Ultraverse NFT Marketplace",
     description: "A responsive NFT marketplace front end built with React. Visitors can browse trending collections, newly listed items and top sellers, explore and sort the full catalog, and open author profiles and item detail pages. All of the content comes from a live REST API.",
     tags: ["HTML", "CSS", "JavaScript"],
     liveUrl: "https://nft-store-sepia.vercel.app/",

@@ -31,12 +31,26 @@ const LandingPage = () => {
             </HoverChars>
           </SplitTextAnimation>
 
-          <SglWrdAnima delay={1.7}>
-            <h2 className="fade text-[clamp(1.25rem,3vw,2.5rem)] font-semibold text-muted">
+          <SglWrdAnima
+            delay={1.7}
+            className="grid gap-6 lg:grid-cols-2 lg:gap-12 lg:items-center"
+          >
+            <h2 className="fade text-[clamp(1.25rem,3vw,2.5rem)] font-semibold text-muted [text-shadow:0_1px_8px_var(--ink)]">
               <span className="grow-word inline-block">Welcome!</span> Thank you
               for visiting my portfolio — a showcase of my projects and
               passions.
             </h2>
+            <div className="max-w-2xl border border-sky-300/0  rounded-md p-4 hover:border-sky-300 transition-all duration-500">
+              <HoverChars type="words">
+                <p className="fade text-left text-muted text-lg [text-shadow:0_1px_8px_var(--ink)]">
+                  I build responsive, mobile-first web applications in React and
+                  Next.js, written in JavaScript and styled with Tailwind CSS. I
+                  connect the frontend to real services: Firebase for
+                  authentication, Stripe for subscription payments, and REST
+                  APIs for data. Every project is deployed on Vercel.
+                </p>
+              </HoverChars>
+            </div>
           </SglWrdAnima>
           <TextCycle>
             <p className="fade max-w-xl ">

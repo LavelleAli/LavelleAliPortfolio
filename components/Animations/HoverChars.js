@@ -5,20 +5,20 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(SplitText);
 
-const HoverChars = ({ children, className }) => {
+const HoverChars = ({ children, className, type = "chars" }) => {
   const el = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const split = SplitText.create(el.current, {
-        type: "chars",
-      });
+      const split = SplitText.create(el.current, { type });
+      const pieces = type === "words" ? split.words : split.chars;
+      const lift =
+        type === "words" ? { y: -3, scale: 1.08 } : { y: -6, scale: 1.2 };
 
-      split.chars.forEach((char) => {
-        char.addEventListener("mouseenter", () => {
-          gsap.to(char, {
-            y: -6,
-            scale: 1.2,
+      pieces.forEach((piece) => {
+        piece.addEventListener("mouseenter", () => {
+          gsap.to(piece, {
+            ...lift,
             color: "#facc15",
             duration: 0.3,
             ease: "power2.out",
@@ -26,22 +26,22 @@ const HoverChars = ({ children, className }) => {
           });
         });
 
-        char.addEventListener("mouseleave", () => {
-          gsap.to(char, {
+        piece.addEventListener("mouseleave", () => {
+          gsap.to(piece, {
             y: 0,
             scale: 1,
-            color: getComputedStyle(char.parentElement).color,
+            color: getComputedStyle(piece.parentElement).color,
             duration: 0.4,
             ease: "power2.out",
             overwrite: "auto",
-            onComplete: () => gsap.set(char, { clearProps: "color" }),
+            onComplete: () => gsap.set(piece, { clearProps: "color" }),
           });
         });
       });
     }, el);
 
     return () => ctx.revert();
-  }, []);
+  }, [type]);
 
   return (
     <>
