@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import SectionHeading from "../components/SectionHeading/sectionHeading";
 import projects from "../data/projects";
@@ -11,11 +11,37 @@ import TextCycle from "@/components/Animations/TextCycle";
 import SglWrdAnima from "@/components/Animations/SglWrdAnima";
 import ContactModals from "@/components/Modals/ContactModals";
 import ScrollReveal from "@/components/Animations/ScrollReveal";
-import ProjectSlider from "@/components/Animations/ProjectSlider";
+import ProjectCard from "@/components/ProjectCard/projectCard";
+import gsap from "gsap";
+
 
 const LandingPage = () => {
-  const featured = projects.filter((project) => project.featured);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(2);
+  const featured = projects.filter((project) => project.featured);
+  const visibleProjects = featured.slice(0, visibleCount);
+  const grid = useRef(null);
+  const shownBefore = useRef(visibleCount);
+
+ useLayoutEffect(() => {
+  const newCards = Array.from(grid.current.children).slice(shownBefore.current);
+  shownBefore.current = visibleCount;
+  if (newCards.length === 0) return;
+
+  const mm = gsap.matchMedia();
+  mm.add("(prefers-reduced-motion: no-preference)", () => {
+    gsap.from(newCards, {
+      opacity: 0,
+      y: 30,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.0,
+    })
+  })
+  return () => mm.revert();
+ },[visibleCount]);
+
+  
 
   return (
     <div className="flex flex-col gap-20 md:gap-28">
@@ -81,12 +107,23 @@ const LandingPage = () => {
       <ScrollReveal className="flex flex-col gap-20 md:gap-28">
         <section className="reveal">
           <SectionHeading eyebrow="Works" title="Featured Projects" center />
-          {/* <div className="grid gap-6 lg:grid-cols-2">
-            {featured.map((project) => (
+
+          <div ref={grid} className="grid gap-6 lg:grid-cols-2">
+            {visibleProjects.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
-          </div> */}
-          <ProjectSlider />
+          </div>
+
+          {visibleCount < featured.length && (
+            <button
+              type="button"
+              onClick={() => setVisibleCount((count) => count + 2)}
+              className="border border-skyblue hover:text-sun transition-all duration-500 rounded-md p-2 mt-8 hover:scale-95 block mx-auto"
+            >
+              Load More
+            </button>
+          )}
+
           <Link
             href="/projects"
             className="block w-fit mx-auto mt-8 text-skyblue hover:text-sun transition-colors"

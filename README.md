@@ -8,7 +8,7 @@ My personal portfolio site: who I am, what I've built, and how to reach me. It's
 
 - **3D space background** built with three.js: a rotating Earth and drifting particles. The camera follows the mouse on desktop and the finger on touch screens, then drifts slowly on its own when idle.
 - **Animated pages** using GSAP: a letter-by-letter name intro, fade-ins, and sections that reveal as you scroll.
-- **Project carousel** built with keen-slider, with arrow buttons on desktop and swiping on phones.
+- **Project cards with screenshots.** The home page shows two featured projects at a time, with a Load More button that fades the next ones in. The Projects page shows every project in a carousel built with keen-slider, with arrow buttons on desktop and swiping on phones.
 - **Light and dark themes**, remembered between visits.
 - **Contact form** in a pop-up window, sent through Formspree.
 - **Custom audio player** on the About page.
@@ -72,13 +72,15 @@ data/
   projects.js        Project list shown on the site
   skills.js          Skills list shown on the home page
 public/              Images, audio and the Earth texture
+  projects/          Project screenshots shown on the cards
 ```
 
 ## Editing content
 
 Most content changes don't need any component code.
 
-- **Projects:** add or edit an entry in `data/projects.js`. Each project has a `title`, `description`, `tags`, `liveUrl`, `repoUrl` and `featured`. Projects with `featured: true` appear on the home page.
+- **Projects:** add or edit an entry in `data/projects.js`. Each project has a `title`, `description`, `tags`, `liveUrl`, `repoUrl`, `featured` and `image`. Projects with `featured: true` appear on the home page.
+- **Project screenshots:** save them in `public/projects/` and set the project's `image` to the path, for example `/projects/SkinstricImg.png`. Cards crop them to a 2:1 shape from the top, so a screenshot of a desktop browser window works best.
 - **Skills:** edit the groups in `data/skills.js`.
 - **Photo, audio and images:** put files in `public/` and reference them from the root, for example `/Me.png`.
 
@@ -104,7 +106,7 @@ There are no automated tests yet. Before deploying, I run `npm run lint` and `np
 - **Theme colors are CSS variables.** `globals.css` defines each color once for dark mode and once for light mode, and Tailwind classes like `bg-ink` and `text-snow` read from them. A small script in `layout.js` applies the saved theme before the page appears, so returning visitors don't see a flash of the wrong theme.
 - **Large screens scale everything up.** Tailwind sizes are in `rem`, so `globals.css` raises the root font size on screens 2200px and wider, and again from 3200px. A 4K TV then shows the same layout as a 1080p screen instead of a small column in the middle.
 - **The 3D background stays out of the way.** It sits behind all content (`-z-10`), ignores clicks (`pointer-events-none`), is hidden from screen readers, and caps its pixel ratio at 2 so it doesn't slow down high-resolution screens.
-- **Scroll animations re-measure the page.** The project carousel changes the page height after it loads, so `ScrollReveal` recalculates its trigger points whenever the page height changes. Visitors who have reduced motion turned on get no scroll animations.
+- **Scroll animations re-measure the page.** The project carousel and the Load More button both change the page height, so `ScrollReveal` recalculates its trigger points whenever the page height changes. Visitors who have reduced motion turned on get no scroll or fade-in animations.
 - **Touch screens use touch events.** Phones stop sending pointer events once a finger starts scrolling, so the cursor follower and 3D camera also listen for `touchstart` and `touchmove`.
 - **The About photo sets its own height.** Its frame used to force a square shape, which older iPhone Safari sized differently from other browsers, so the photo overflowed onto the text. The frame now takes its height from the photo.
 

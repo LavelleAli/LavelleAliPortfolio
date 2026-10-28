@@ -8,6 +8,7 @@ const projects = [
       "https://lavelle-skinstric-internship.vercel.app/",
     repoUrl: "https://github.com/LavelleAli/Lavelle-Skinstric-Internship.git",
     featured: true,
+    image: '/projects/SkinstricImg.png'
   },
   {
     title: "Summarist",
@@ -17,6 +18,7 @@ const projects = [
     liveUrl: "https://lavelle-advance-virtual-internship.vercel.app/",
     repoUrl: "https://github.com/LavelleAli/Project003--Summarist.git",
     featured: true,
+    image: '/projects/SummaristImg.png'
   },
   {
     title: "Netflix Clone",
@@ -24,7 +26,8 @@ const projects = [
     tags: ["HTML", "CSS", "JavaScript"],
     liveUrl: "https://netflix-clone-lavelle-ali.vercel.app/",
     repoUrl: "https://github.com/LavelleAli/Project004-Netflix-Clone.git",
-    featured: false,
+    featured: true,
+    image: '/projects/NetflixCloneImg.png'
   },
   {
     title: "Ultraverse NFT Marketplace",
@@ -32,7 +35,8 @@ const projects = [
     tags: ["HTML", "CSS", "JavaScript"],
     liveUrl: "https://nft-store-sepia.vercel.app/",
     repoUrl: "https://github.com/LavelleAli/NFT-Store.git",
-    featured: false,
+    featured: true,
+    image: '/projects/UltraverseImg.png'
   }
 ];
 

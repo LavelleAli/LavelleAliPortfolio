@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const tagColors = [
   "text-coral border-coral/40",
@@ -8,7 +9,19 @@ const tagColors = [
 
 const projectCard = ({ project }) => {
   return (
+    
     <article className="group flex flex-col bg-surface border border-line rounded-xl p-6 transition-colors hover:border-skyblue duration-900 w-full max-w-150 min-h-80 h-full text-center">
+      {project.image && (
+              <Image 
+              src={project.image}
+              alt={`Screenshot of ${project.title}`}
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-lg border border-line aspect-2/1 object-cover object-top mb-4"
+
+              
+              />
+            )}
       <h3 className="text-xl font-semibold group-hover:text-skyblue transition-colors">
         {project.title}
       </h3>
